@@ -22,4 +22,5 @@ listSpells: function ()
     this.listOfSpells.forEach((ele) => {
       console.log({`spell: ${ele.spell}, power: ${ele.power}`})
   }
+  
 }
