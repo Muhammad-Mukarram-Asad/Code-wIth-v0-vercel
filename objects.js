@@ -22,5 +22,7 @@ listSpells: function ()
     this.listOfSpells.forEach((ele) => {
       console.log({`spell: ${ele.spell}, power: ${ele.power}`})
   }
-  
 }
+
+let book1 = new spellBook();
+book1.addSpell("JavaScript",100);
