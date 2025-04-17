@@ -26,3 +26,5 @@ listSpells: function ()
 
 let book1 = new spellBook();
 book1.addSpell("JavaScript",100);
+
+let book2 = new spellBook();
