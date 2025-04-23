@@ -25,8 +25,11 @@ listSpells: function ()
 }
 
 let book1 = new spellBook();
-book1.addSpell("JavaScript",100);
+book1.addSpell("JavaScript",200);
 
 let book2 = new spellBook();
 book2.addSpell("Python", 150);
 let book3 = new spellBook();
+book3.addSpell("Java", 100);
+
+book1.findSpell("Go");
