@@ -29,4 +29,4 @@ book1.addSpell("JavaScript",100);
 
 let book2 = new spellBook();
 book2.addSpell("Python", 150);
-
+let book3 = new spellBook();
