@@ -32,4 +32,4 @@ book2.addSpell("Python", 150);
 let book3 = new spellBook();
 book3.addSpell("Java", 100);
 
-book1.findSpell("Go");
+book1.findSpell("Go"); // expected result: not found.
