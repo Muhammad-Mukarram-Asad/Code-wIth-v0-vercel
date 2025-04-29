@@ -1,2 +1,2 @@
 # Code-With-v0  
-This repository is basically a practice repo for js, react logic buildings
+This repository is basically a practice of js, react.js, next.js coding question.
