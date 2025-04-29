@@ -1,2 +1,2 @@
-# Code-With-AI
-# Code with 0-dev
+# Code-With-v0  
+This repository is basically a practice repo for js, react logic buildings
