@@ -1,4 +1,8 @@
-const Popup = () =>
+const Popup = (fName:string, lName:string) =>
   {
-    return ();
+    if(fName === "" || lName === "")
+    {
+      console.log("In-Valid names")!
+    }
+    console.log("Your Name is: ");
   }
