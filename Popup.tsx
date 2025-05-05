@@ -4,5 +4,5 @@ const Popup = (fName:string, lName:string) =>
     {
       console.log("In-Valid names")!
     }
-    console.log("Your Name is: ");
+    console.log(`Your Name is: `);
   }
