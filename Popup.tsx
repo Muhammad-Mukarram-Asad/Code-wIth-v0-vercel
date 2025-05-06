@@ -6,3 +6,6 @@ const Popup = (fName:string, lName:string) =>
     }
     console.log(`Your Full Name is: ${fName} ${lName}. `);
   }
+
+// bind method in js objects below:
+
