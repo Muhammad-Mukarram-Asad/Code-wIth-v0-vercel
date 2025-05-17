@@ -29,3 +29,9 @@ const users = [
 export function findUser(username) {
   return users.find(u => u.username === username);
 }
+
+// Login Post Request:
+export const loginUser(req,res) =>
+  {
+    const {username, password} = req.json();
+  }
