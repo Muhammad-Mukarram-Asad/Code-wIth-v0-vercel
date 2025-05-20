@@ -1,3 +1,8 @@
+Steps for Using NextAuth:
+1) npm install next-auth
+2) openssl rand -base64 32
+3) Make an environment variable namely "AUTH_SECRET" and its value is the generated key 
+
 // lib/auth.js
 import jwt from 'jsonwebtoken';
 
