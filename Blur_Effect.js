@@ -20,3 +20,8 @@
     }
     setHoldIndex(null);
   };
+
+  const handleMouseLeave = () => {
+    if (holdTimer.current) clearTimeout(holdTimer.current);
+    setHoldIndex(null);
+  };
