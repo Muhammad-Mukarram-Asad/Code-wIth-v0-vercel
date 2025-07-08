@@ -25,3 +25,4 @@
     if (holdTimer.current) clearTimeout(holdTimer.current);
     setHoldIndex(null);
   };
+// Filtering the selected & unselected list elements:
