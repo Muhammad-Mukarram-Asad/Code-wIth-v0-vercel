@@ -26,3 +26,4 @@
     setHoldIndex(null);
   };
 // Filtering the selected & unselected list elements:
+const [selectedItems, setSelectedItems]=useState([]);
