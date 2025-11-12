@@ -1,4 +1,5 @@
 export const billionToTrillion = (value: any) => {
+  // convert the prop value into number type:
   const num = Number(value);
   if (isNaN(num)) return value?.toString();
 
