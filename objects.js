@@ -34,6 +34,20 @@ book3.addSpell("Java", 100);
 
 book1.findSpell("Go"); // expected result: not found.
 
-// JS Objects Important Thing related to how they save the data:
+// JS Objects Important Thing related to how they sstore the data:
 
-Objects save the data by their reference in js
+/*
+In JavaScript, objects (including arrays and functions, which are specialized types of objects) are stored and manipulated by reference,  
+not by value. This means that when you assign an object to a variable, or pass an object as an argument to a function, you are actually  
+working with a reference to the object in memory, not a copy of the object itself.
+*/
+// For Example:  
+let obj1 = { a: 1 };
+let obj2 = obj1; // obj2 now holds a reference to the same object as obj1
+
+obj2.a = 2; // Modifying obj2 also modifies the object referred to by obj1
+
+console.log(obj1.a); // Output: 2
+
+
+
