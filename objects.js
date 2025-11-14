@@ -33,3 +33,7 @@ let book3 = new spellBook();
 book3.addSpell("Java", 100);
 
 book1.findSpell("Go"); // expected result: not found.
+
+// JS Objects Important Thing related to how they save the data:
+
+Objects save the data by their reference in js
