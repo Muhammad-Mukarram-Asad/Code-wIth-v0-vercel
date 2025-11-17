@@ -44,10 +44,14 @@ working with a reference to the object in memory, not a copy of the object itsel
 // For Example:  
 let obj1 = { a: 1 };
 let obj2 = obj1; // obj2 now holds a reference to the same object as obj1
-
 obj2.a = 2; // Modifying obj2 also modifies the object referred to by obj1
-
 console.log(obj1.a); // Output: 2
+// In order to copy the originsl object we have to use the below methods:  
+StructuredClone()
+DeepClone(). 
+Spread Operstor (...)
+
+
 
 
 
