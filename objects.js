@@ -46,10 +46,42 @@ let obj1 = { a: 1 };
 let obj2 = obj1; // obj2 now holds a reference to the same object as obj1
 obj2.a = 2; // Modifying obj2 also modifies the object referred to by obj1
 console.log(obj1.a); // Output: 2
-// In order to copy the originsl object we have to use the below methods:  
-StructuredClone()
-DeepClone(). 
-Spread Operstor (...)
+
+// Shallow Copy by using a spread operator:
+A shallow copy creates a new object and copies the top-level properties of the original object. However, if any of these properties are  
+references to other objects (nested objects or arrays), only the reference is copied, not the actual nested object itself. This means that  
+changes to nested objects in the copied object will also affect the original object.  
+const originalObject = {
+  name: "Alice",
+  address: {
+    street: "Main St",
+    number: 123
+  }
+};
+
+// Using the spread operator for a shallow copy
+const shallowCopy = { ...originalObject };
+
+console.log("Original object before modification:", originalObject);
+console.log("Shallow copy before modification:", shallowCopy);
+
+// Modify a top-level property in the shallow copy
+shallowCopy.name = "Bob";
+
+// Modify a nested property in the shallow copy
+shallowCopy.address.number = 456;
+
+console.log("\nOriginal object after modification:", originalObject);
+console.log("Shallow copy after modification:", shallowCopy);
+
+/*
+Output:
+Original object before modification: { name: 'Alice', address: { street: 'Main St', number: 123 } }
+Shallow copy before modification: { name: 'Alice', address: { street: 'Main St', number: 123 } }
+
+Original object after modification: { name: 'Alice', address: { street: 'Main St', number: 456 } }
+Shallow copy after modification: { name: 'Bob', address: { street: 'Main St', number: 456 } }
+*/
 
 
 
