@@ -9,7 +9,7 @@ For making popups appear infront of the page, use the following css:
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 1000; // Increase its value wrt parent z-Index.
 }
 
 .popup-content {
