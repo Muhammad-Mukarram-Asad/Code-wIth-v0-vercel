@@ -1,0 +1,63 @@
+/**
+ * scrape-puppeteer.js
+ *
+ * Example scraping using Puppeteer (headless Chromium).
+ * Use this for pages that require JavaScript to render content.
+ *
+ * What it does:
+ * - Launches a headless browser
+ * - Navigates to the page
+ * - Waits for the selector that indicates content is loaded
+ * - Extracts quote text, author, and tags directly from the page context
+ * - Saves a screenshot for debugging
+ * - Prints extracted data as JSON
+ *
+ * Notes:
+ * - Puppeteer is heavier but necessary for JS-rendered content.
+ * - You can run headless or with headful mode for debugging.
+ */
+
+const puppeteer = require('puppeteer');
+
+const URL = 'https://quotes.toscrape.com/';
+
+(async function main() {
+  // Launch Chromium. Remove headless:false if you want to see the browser.
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+
+  // Set a reasonable user agent
+  await page.setUserAgent('example-puppeteer-scraper/1.0 (+https://example.invalid)');
+
+  try {
+    // Navigate and wait until network is idle so resources load
+    await page.goto(URL, { waitUntil: 'networkidle2', timeout: 30000 });
+
+    // Wait for the main element that contains quotes to be present
+    await page.waitForSelector('.quote', { timeout: 10000 });
+
+    // Evaluate in page context: find all quote elements and extract data
+    const quotes = await page.$$eval('.quote', nodes => {
+      return nodes.map(node => {
+        const textEl = node.querySelector('.text');
+        const authorEl = node.querySelector('.author');
+        const tagEls = node.querySelectorAll('.tags .tag');
+
+        const quoteText = textEl ? textEl.textContent.trim() : '';
+        const author = authorEl ? authorEl.textContent.trim() : '';
+        const tags = Array.from(tagEls).map(t => t.textContent.trim());
+
+        return { quote: quoteText, author, tags };
+      });
+    });
+
+    // Save a screenshot for debugging/verification
+    await page.screenshot({ path: 'screenshot.png', fullPage: true });
+
+    console.log(JSON.stringify(quotes, null, 2));
+  } catch (err) {
+    console.error('Error scraping with Puppeteer:', err);
+  } finally {
+    await browser.close();
+  }
+})();
