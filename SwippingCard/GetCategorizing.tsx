@@ -13,3 +13,12 @@ import { toast } from 'react-toastify';
 import { showToast } from '@/utils/toasts/showToast';
 import { ToastType } from '@/utils/enums/ToastTypes.enum';
 import { useRouter } from 'next/router';
+
+type propType {
+  uncatTrxList: [],
+  onClose: () => void
+}
+export const GetCategorizing()
+{
+
+}
