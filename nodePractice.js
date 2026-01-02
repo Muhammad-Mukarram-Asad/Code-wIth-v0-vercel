@@ -32,10 +32,44 @@ node global --user "mukii" --greeting "hello"
 
 // Standard Input and Output in node.js:
 process.stdout.write("Welcome");
+
 const questions = [
-  "Whats i your name?",
-  "How old are you?",
-   "What is your faviourite sports?"
-];
+    "What is your name?",
+    "What is your favorite color?",
+    "What is your favorite food?"
+]
+
+const answers = [];
+
+function ask(i = 0)
+{
+    process.stdout.write('\n' + questions[i] + ' > ');
+}
+
+// ask(answers.length);
+
+
+// wait for user input
+process.stdin.on('data', function (data) {
+    answers.push(data.toString().trim());
+    if (answers.length < questions.length) {
+        ask(answers.length);
+    } else {
+        // process.stdout.write('\n\n');
+        // for(const ans of answers)
+        // {
+        //     process.stdout.write(ans + '\n\n');
+        // }
+        process.exit();
+    }
+});
+
+ask();
+
+// for displaying user output after exit,
+process.on('exit', () => {
+    process.stdout.write('\n');
+    console.log(`So your name is ${answers[0]} and your favorite color is ${answers[1]} and your favorite food is ${answers[2]}`);
+})
 
   
