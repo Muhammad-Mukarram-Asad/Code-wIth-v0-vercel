@@ -20,5 +20,5 @@ type propType {
 }
 export const GetCategorizing()
 {
-
+ const [showMoreCategories, setShowMoreCategories]=useState<Boolean>(false);
 }
