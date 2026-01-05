@@ -16,9 +16,13 @@ import { useRouter } from 'next/router';
 
 type propType {
   uncatTrxList: [],
-  onClose: () => void
+  onClose: () => void,
+  active:boolean = false,
+  setActive,
+  show
 }
 export const GetCategorizing()
 {
  const [showMoreCategories, setShowMoreCategories]=useState<Boolean>(false);
+  const [currentTrx, setCurrentTrx] = useState(null);
 }
