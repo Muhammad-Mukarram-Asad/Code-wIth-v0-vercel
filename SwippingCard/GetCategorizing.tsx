@@ -46,3 +46,21 @@ const GetCategorizing = (props: Props) => {
     null
   );
   const [showContent, setShowContent] = useState(false);
+  const allCategories: CategoryDetails[] = useMemo(() => {
+    if (typeof window === 'undefined') return [];
+    try {
+      return JSON.parse(window.sessionStorage.getItem('allCategories') || '[]');
+    } catch {
+      return [];
+    }
+  }, []);
+
+  const allAccounts: AccountDetails[] = useMemo(() => {
+    if (typeof window === 'undefined') return [];
+    try {
+      return JSON.parse(window.sessionStorage.getItem('accountList') || '[]');
+    } catch {
+      return [];
+    }
+  }, []);
+  The provided code snippet is a React hook using useMemo to retrieve a list of categories from window.sessionStorage. This approach is common in web development for managing application state across different components or user sessions. 
