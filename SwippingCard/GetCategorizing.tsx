@@ -14,15 +14,35 @@ import { showToast } from '@/utils/toasts/showToast';
 import { ToastType } from '@/utils/enums/ToastTypes.enum';
 import { useRouter } from 'next/router';
 
-type propType {
-  uncatTrxList: [],
-  onClose: () => void,
-  active:boolean = false,
-  setActive,
-  show
-}
-export const GetCategorizing()
-{
- const [showMoreCategories, setShowMoreCategories]=useState<Boolean>(false);
-  const [currentTrx, setCurrentTrx] = useState(null);
-}
+type Props = {
+  show: boolean;
+  active: boolean;
+  setActive: (v: boolean) => void;
+  unCatTrxList: VoucherDetails[];
+  onClose: () => void;
+};
+
+const GetCategorizing = (props: Props) => {
+  const { show, active, setActive, unCatTrxList, onClose } = props;
+  const router = useRouter();
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [congratulationsPopup, setCongratulationsPopup] = useState(false);
+  const [skippedPopup, setSkippedPopup] = useState(false);
+  const [remainingPopup, setRemainingPopup] = useState(false);
+  const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
+    null
+  );
+
+  const [showAllCategories, setShowAllCategories] = useState<boolean>(false);
+
+  // ✅ Snapshot queue (freeze) so props changes don't break the flow
+  const [trxQueue, setTrxQueue] = useState<VoucherDetails[]>([]);
+  const [hasInitializedQueue, setHasInitializedQueue] = useState(false);
+  const [currentTrx, setCurrentTrx] = useState<VoucherDetails | null>(null);
+  const [accountObj, setAccountObj] = useState<AccountDetails | undefined>(
+    null
+  );
+  const [showContent, setShowContent] = useState(false);
