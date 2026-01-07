@@ -63,4 +63,12 @@ const GetCategorizing = (props: Props) => {
       return [];
     }
   }, []);
-  The provided code snippet is a React hook using useMemo to retrieve a list of categories from window.sessionStorage. This approach is common in web development for managing application state across different components or user sessions. 
+//  The provided code snippet is a React hook using useMemo to retrieve a list of categories from window.sessionStorage. This approach is common in web development for managing application state across different components or user sessions. 
+
+useEffect(()=>{
+  if(show)
+  {
+    document.body.scrollY = window.scrollY;
+    document.body.overflow = "hidden";
+  }
+},[]);
