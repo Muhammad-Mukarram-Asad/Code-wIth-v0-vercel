@@ -28,7 +28,8 @@ src/app/videos/[name]/route.ts
 
 3️⃣ Add this code:
 import { NextResponse } from 'next/server'
-import fs from 'fs'
+import fs from 'fs' // file system core module of node.js
+
 import path from 'path'
 
 export async function GET(
