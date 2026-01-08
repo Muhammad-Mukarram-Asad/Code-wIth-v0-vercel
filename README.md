@@ -1,2 +1,2 @@
-# Code-With-v0  
-This repository is basically a practice of javascript, react.js, next.js coding questions.
+# Code-With-Mukii
+This repository is for quick search of my different type of codes which I think will help me later in my career.
