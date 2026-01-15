@@ -1,0 +1,5 @@
+// React Lazy and Suspense Example
+
+const LazyComponent = ()=>{
+return()
+}
